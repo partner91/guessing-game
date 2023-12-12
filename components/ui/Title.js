@@ -18,5 +18,6 @@ const styles = StyleSheet.create({
     paddingVertical: 20,
     paddingHorizontal: 10,
     fontFamily: 'open-sans-bold',
+    maxWidth: '80%',
   },
 });
