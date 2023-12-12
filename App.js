@@ -11,6 +11,7 @@ import AppLoading from 'expo-app-loading';
 export default function App() {
   const [userNumber, setUserNumber] = useState();
   const [gameIsOver, setGameIsOver] = useState(true);
+  const [guessRouds, setGuessRouds] = useState(0);
 
   const [fontsLoaded] = useFonts({
     'open-sans': require('./assets/fonts/OpenSans-Regular.ttf'),
@@ -26,20 +27,36 @@ export default function App() {
     setUserNumber(pickedNumber);
   }
 
-  function gameOverHandler() {
+  function gameOverHandler(numberOfRounds) {
+    setGuessRouds(numberOfRounds);
     setGameIsOver(true);
+  }
+
+  function startNewGameHandler() {
+    setUserNumber(null);
+    setGuessRouds(0);
   }
 
   let screen = <StartGameScreen onPickNumber={startGameHandler} />;
 
   if (userNumber) {
     screen = (
-      <GameScreen onGameOver={gameOverHandler} userNumber={userNumber} />
+      <GameScreen
+        onGameOver={gameOverHandler}
+        userNumber={userNumber}
+        onNextRound={setGuessRouds}
+      />
     );
   }
 
   if (gameIsOver && userNumber) {
-    screen = <GameOverScreen />;
+    screen = (
+      <GameOverScreen
+        userNumber={userNumber}
+        roundsNumber={guessRouds}
+        onStartNewGame={startNewGameHandler}
+      />
+    );
   }
 
   return (
@@ -49,7 +66,7 @@ export default function App() {
     >
       <ImageBackground
         source={require('./assets/images/background.png')}
-        resizeMode="cover"
+        resizeMode='cover'
         style={styles.rootScreen}
         imageStyle={styles.backgroundImage}
       >
