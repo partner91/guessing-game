@@ -10,7 +10,7 @@ import {
 import PrimaryButton from '../components/ui/PrimaryButton';
 import { useState } from 'react';
 import Colors from '../constants/Colors';
-import Title from '../components/ui/Title';
+import Title from '../components/ui/Title.ios';
 import Card from '../components/ui/Card';
 import InstructionText from '../components/ui/InstructionText';
 

@@ -1,5 +1,5 @@
 import { Image, StyleSheet, Text, View, Dimensions } from 'react-native';
-import Title from '../components/ui/Title';
+import Title from '../components/ui/Title.ios';
 import Colors from '../constants/Colors';
 import PrimaryButton from '../components/ui/PrimaryButton';
 

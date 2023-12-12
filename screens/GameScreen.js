@@ -1,5 +1,5 @@
 import { Text, View, StyleSheet, Alert, FlatList } from 'react-native';
-import Title from '../components/ui/Title';
+import Title from '../components/ui/Title.ios';
 import { useEffect, useState } from 'react';
 import NumberContainer from '../components/game/NumberContainer';
 import PrimaryButton from '../components/ui/PrimaryButton';
